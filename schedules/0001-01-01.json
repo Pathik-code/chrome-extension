@@ -1,0 +1,82 @@
+{
+    "0001-01-01_001": {
+        "name": "DSA Practice",
+        "start_time": "06:00",
+        "end_time": "07:30",
+        "subtasks": [
+            "Solve 2-3 medium/hard DSA problems"
+        ]
+    },
+    "0001-01-01_002": {
+        "name": "DSA Practice",
+        "start_time": "07:30",
+        "end_time": "08:00",
+        "subtasks": [
+            "Review solutions"
+        ]
+    },
+    "0001-01-01_003": {
+        "name": "DSA Practice",
+        "start_time": "08:00",
+        "end_time": "10:00",
+        "subtasks": [
+            "Advanced DSA topics"
+        ]
+    },
+    "0001-01-01_004": {
+        "name": "Python & SQL Practice",
+        "start_time": "10:00",
+        "end_time": "11:00",
+        "subtasks": [
+            "SQL/NoSQL practice"
+        ]
+    },
+    "0001-01-01_005": {
+        "name": "Python & SQL Practice",
+        "start_time": "11:00",
+        "end_time": "12:30",
+        "subtasks": [
+            "Python ETL practice"
+        ]
+    },
+    "0001-01-01_006": {
+        "name": "Interview Prep & Projects",
+        "start_time": "12:30",
+        "end_time": "14:30",
+        "subtasks": [
+            "Interview prep/Kafka/PySpark"
+        ]
+    },
+    "0001-01-01_007": {
+        "name": "Interview Prep & Projects",
+        "start_time": "14:30",
+        "end_time": "16:30",
+        "subtasks": [
+            "Snowflake/AWS practice"
+        ]
+    },
+    "0001-01-01_008": {
+        "name": "Job Applications",
+        "start_time": "16:30",
+        "end_time": "18:30",
+        "subtasks": [
+            "Apply to jobs"
+        ]
+    },
+    "0001-01-01_009": {
+        "name": "Job Applications",
+        "start_time": "18:30",
+        "end_time": "20:30",
+        "subtasks": [
+            "Project work"
+        ]
+    },
+    "0001-01-01_010": {
+        "name": "Book Reading",
+        "start_time": "23:30",
+        "end_time": "02:30",
+        "subtasks": [
+            "Need to maintain the habit of reading books"
+        ]
+    }
+}

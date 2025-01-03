@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Study Schedule Reminder",
+    "version": "1.0",
+    "description": "Personal study schedule reminder and task manager",
+    "permissions": [
+        "notifications",
+        "storage",
+        "alarms"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' http://localhost:* http://127.0.0.1:*; object-src 'self'"
+    }
+}

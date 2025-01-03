@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Schedule Reminder</title>
+    <style>
+        body { width: 450px; padding: 15px; }
+        .task { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+        .subtasks { margin-left: 20px; }
+        .error { color: red; padding: 10px; border: 1px solid red; background: #ffe6e6; }
+        .task-form { display: none; padding: 15px; border: 1px solid #ddd; margin: 10px 0; }
+        .form-group { margin: 10px 0; }
+        .form-group label { display: flex; margin-bottom: 5px; align-items: center; }
+        .form-group input, .form-group textarea { width: 100%; padding: 5px; }
+        .form-group input[type="checkbox"] { margin-right: 5px; }
+        .buttons { display: flex; gap: 10px; margin: 10px 0; }
+        .button { padding: 8px 15px; cursor: pointer; }
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-btn {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background: #cc0000;
+        }
+        .schedule-type {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        .alarm-settings {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f0f8ff;
+            border-radius: 5px;
+        }
+        .date-selector {
+            margin: 10px 0;
+        }
+        .toggle-alarm {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .notification-settings {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .copy-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        #copyButton {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #copyButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Study Schedule Manager</h2>
+
+    <div class="schedule-type">
+        <h3>Schedule Type</h3>
+        <select id="scheduleType" class="button">
+            <option value="today">Today's Schedule</option>
+            <option value="custom">Custom Date</option>
+            <option value="copy">Copy Previous Schedule</option>
+        </select>
+
+        <div id="dateSelector" class="date-selector" style="display: none;">
+            <input type="date" id="scheduleDate">
+        </div>
+
+        <div id="copyControls" class="copy-controls" style="display: none;">
+            <button id="copyButton" class="button">Copy</button>
+        </div>
+    </div>
+
+    <div class="alarm-settings">
+        <h3>Notification Settings</h3>
+        <label>
+            <input type="checkbox" id="enableAlarm"> Enable Sound Notifications
+        </label>
+        <div id="notificationSettings" class="notification-settings">
+
+            <div class="form-group">
+                <label>Reminder Time:</label>
+                <select id="reminderTime">
+                    <option value="0">At start time</option>
+                    <option value="5">5 minutes before</option>
+                    <option value="10">10 minutes before</option>
+                    <option value="15">15 minutes before</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Sound Volume:</label>
+                <input type="range" id="volume" min="0" max="100" value="50">
+            </div>
+            <div class="form-group">
+                <label>Notification Sound:</label>
+                <select id="notificationSound">
+                    <option value="sound1.mp3">Sound 1</option>
+                    <option value="sound2.mp3">Sound 2</option>
+                    <option value="sound3.mp3">Sound 3</option>
+                    <option value="alert.mp3">Alert</option>
+                    <option value="chime.mp3">Chime</option>
+                    <option value="ringtone.mp3">Ringtone</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button id="refresh" class="button">Refresh Schedule</button>
+        <button id="addTask" class="button">Add New Task</button>
+    </div>
+
+    <div id="taskForm" class="task-form">
+        <div class="form-group">
+            <label for="taskName">Task Name:</label>
+            <input type="text" id="taskName" required>
+        </div>
+        <div class="form-group">
+            <label for="taskDate">Task Date:</label>
+            <input type="date" id="taskDate" required>
+        </div>
+        <div class="form-group">
+            <label for="startTime">Start Time (HH:MM):</label>
+            <input type="time" id="startTime" required>
+        </div>
+        <div class="form-group">
+            <label for="endTime">End Time (HH:MM):</label>
+            <input type="time" id="endTime" required>
+        </div>
+        <div class="form-group">
+            <label for="subtasks">Subtasks (one per line):</label>
+            <textarea id="subtasks" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="setAlarm" checked> Set Reminder
+            </label>
+        </div>
+        <div class="buttons">
+            <button id="saveTask" class="button">Save Task</button>
+            <button id="cancelTask" class="button">Cancel</button>
+        </div>
+    </div>
+
+    <div id="schedule"></div>
+    <script src="popup.js"></script>
+</body>
+</html>
